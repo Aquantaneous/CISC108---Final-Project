@@ -8,7 +8,7 @@ set_site_information(
     description="Use or create your own ammunition and armor presets to see how the shell performs.",
     sources="Thanks to the Drafter docs and my study group.",
     planning=[],
-    links=["https://github.com/Aquantaneous/CISC108---Final-Project"]
+    links=[]
 )
 set_website_framed(True)
 
