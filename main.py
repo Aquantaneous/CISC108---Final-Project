@@ -725,4 +725,4 @@ initial_state = State(
     simulation_distance=1000.0,
     last_verdict="Ready to simulate"
 )
-start_server(initial_state)
+start_server(initial_state, port=8210)
