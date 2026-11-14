@@ -10,7 +10,6 @@ set_site_information(
     planning=[],
     links=["https://aquantaneous.github.io/CISC108---Final-Project/"]
 )
-hide_debug_information()
 set_website_framed(False)
 
 
