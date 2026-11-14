@@ -7,8 +7,8 @@ set_site_information(
     author="Kasper Milton",
     description="Use or create your own ammunition and armor presets to see how the shell performs.",
     sources="Thanks to the Drafter docs and my study group.",
-    planning=["planning.pdf"],
-    links=["https://github.com/Aquantaneous/CS108-Final-Project"]
+    planning=[],
+    links=["https://aquantaneous.github.io/CISC108---Final-Project/"]
 )
 hide_debug_information()
 set_website_framed(False)
@@ -235,15 +235,14 @@ def show_arsenal(state: State, new_name: str = "", new_type: str = "",
     Returns:
         Page: The shell arsenal inventory page.
     """
-    rows = [[
+    rows: list[list[Component | str | int | float | bool]] = [[
         "Shell Name", "Type", "Mass", "Caliber",
         "Muzzle Vel.", "Muzzle Energy", "Status"
     ]]
 
-    # Advanced technique: enumerate() pairs each Shell instance with its list
-    # index, and Argument() passes that index to select_shell on click.
     for i, shell in enumerate(state.arsenal):
         ke_mj = (0.5 * shell.mass * (shell.muzzle_velocity ** 2)) / 1_000_000.0
+        action_cell: Component | str
         if shell.name == state.active_shell.name:
             action_cell = "ACTIVE"
         else:
@@ -444,13 +443,9 @@ def simulate_page(state: State) -> Page:
         state.active_shell, state.target, state.simulation_distance
     )
 
-    range_rows = [["Range (m)", "Impact Velocity", "Effective Penetration"]]
-    for dist in [100, 500, 1000, 1500, 2000, 3000]:
-        d_vel = calculate_velocity_decay(state.active_shell, float(dist))
-        d_pen = calculate_penetration(
-            state.active_shell, d_vel, state.target.has_era
-        )
-        range_rows.append([f"{dist} m", f"{d_vel:.0f} m/s", f"{d_pen:.1f} mm"])
+    range_rows: list[list[Component | str | int | float | bool]] = [
+        ["Range (m)", "Impact Velocity", "Effective Penetration"]
+    ]
 
     shell_text = (
         f"Active Shell: {state.active_shell.name} "
@@ -524,7 +519,9 @@ def compare_arsenal(state: State) -> Page:
         Page: The comparative arsenal analysis page.
     """
     pen_col = f"Penetration @ {state.simulation_distance:.0f}m"
-    rows = [["Shell Name", "Type", pen_col, "Target LOS Armor", "Result"]]
+    rows: list[list[Component | str | int | float | bool]] = [[
+        "Shell Name", "Type", pen_col, "Target LOS Armor", "Result"
+    ]]
 
     for shell in state.arsenal:
         _, pen, los, verdict = evaluate_shot(
@@ -728,5 +725,4 @@ initial_state = State(
     simulation_distance=1000.0,
     last_verdict="Ready to simulate"
 )
-
-start_server(initial_state, port=9000)
+start_server(initial_state)
