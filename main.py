@@ -10,7 +10,8 @@ set_site_information(
     planning="",
     links=""
 )
-set_website_framed(True)
+hide_debug_information()
+set_website_framed(False)
 
 
 # ==========================================
