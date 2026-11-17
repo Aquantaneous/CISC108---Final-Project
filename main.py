@@ -2,14 +2,14 @@ from dataclasses import dataclass
 import math
 from drafter import *
 
-set_website_title("Tank Ballistics Calculator")
 set_site_information(
     author="Kasper Milton",
     description="Use or create your own ammunition and armor presets to see how the shell performs.",
     sources="Thanks to the Drafter docs and my study group.",
     planning="",
-    links=""
+    links="https://aquantaneous.github.io/CISC108---Final-Project/"
 )
+
 hide_debug_information()
 set_website_framed(False)
 
