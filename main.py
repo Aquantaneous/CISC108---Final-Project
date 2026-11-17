@@ -2,6 +2,7 @@ from dataclasses import dataclass
 import math
 from drafter import *
 
+set_website_title("Tank Ballistics Calculator")
 set_site_information(
     author="Kasper Milton",
     description="Use or create your own ammunition and armor presets to see how the shell performs.",
