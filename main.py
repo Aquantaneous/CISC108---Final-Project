@@ -22,7 +22,7 @@ RHO_STEEL = 7850.0       # Density of Rolled Homogeneous Armor (kg/m^3)
 RHO_COPPER = 8960.0      # Density of copper HEAT liner (kg/m^3)
 RHO_TUNGSTEN = 17500.0   # Density of tungsten APFSDS rod (kg/m^3)
 RHO_AIR = 1.225          # Standard air density at sea level (kg/m^3)
-DEMARRE_K = 0.00012      # Empirical DeMarre coefficient for APCBC
+DEMARRE_K = 2.0e-7       # Empirical DeMarre coefficient for APCBC
 ARMOR_YIELD_PA = 1.5e9   # Approximate RHA yield strength (Pa)
 
 
